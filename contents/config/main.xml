@@ -12,6 +12,9 @@
       <entry name="customColorEnable" type="string">
           <default>true</default>
       </entry>
+      <entry name="hideText" type="string">
+          <default>false</default>
+      </entry>
       <entry name="customColorCodeRGB" type="string">
           <default>#ffffff</default>
       </entry>

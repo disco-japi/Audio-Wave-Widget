@@ -16,6 +16,7 @@ PlasmoidItem {
     property string artist: mpris2Model.currentPlayer?.artist ?? ""
     property string track: mpris2Model.currentPlayer?.track
     property string generalColor: Plasmoid.configuration.customColorEnable ? Plasmoid.configuration.customColorCodeRGB : Kirigami.ThemeTextColor
+    property bool hideText: Plasmoid.configuration.hideText
 
     readonly property int playbackStatus: mpris2Model.currentPlayer?.playbackStatus ?? 0
     readonly property bool isPlaying: root.playbackStatus === Mpris.PlaybackStatus.Playing
@@ -114,6 +115,7 @@ PlasmoidItem {
 
             Column {
                 id: infotrack
+                visible: !root.hideText
                 width: wrapper.width
                 height: parent.height-(barras.height)
                 spacing: 0
@@ -140,6 +142,7 @@ PlasmoidItem {
 
             Text {
                 id: artisMusic
+                visible: !root.hideText
                 width: wrapper.width
                 height: parent.height*.35
                 font.pixelSize: height*.8
@@ -157,6 +160,8 @@ PlasmoidItem {
     }
     Mpris.Mpris2Model {
         id: mpris2Model
-    }
+    }    
+    compactRepresentation: Compact {}
+    fullRepresentation: Full {}
 
 }

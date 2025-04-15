@@ -12,6 +12,7 @@ Item {
 
     property alias cfg_frecuencyUpdates: frecuencyUpdate.value
     property alias cfg_customColorEnable: sistemColorCkeck.checked
+    property alias cfg_hideText: hideText.checked
     property alias cfg_customColorCodeRGB: customColorRGB.text
     property var cfg_colorize: sistemColorCkeck.checked ? cfg_customColorCodeRGB : Kirigami.Theme.TextColor
 
@@ -79,6 +80,16 @@ Item {
             id: customColorRGB
             width: 250
             enabled: sistemColorCkeck.checked
+        }
+        Label {
+            Layout.minimumWidth: root.width/2
+            text: i18n("Hide song title and artist:")
+            horizontalAlignment: Label.AlignRight
+        }
+
+        CheckBox{
+            id: hideText
+            text: i18n("")
         }
 
     }
